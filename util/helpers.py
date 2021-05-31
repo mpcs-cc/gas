@@ -35,7 +35,7 @@ def send_email_ses(recipients=None, sender=None, subject=None, body=None):
       },
       Source=(sender or config['gas']['MailDefaultSender']))
   except ClientError as e:
-    raise ClientError
+    raise e
 
   return response
 
@@ -52,7 +52,7 @@ def get_user_profile(id=None, db_name=None):
     asm_response = asm.get_secret_value(SecretId='rds/accounts_database')
     rds_secret = json.loads(asm_response['SecretString'])
   except ClientError as e:
-    raise ClientError
+    raise e
 
   db_uri = "postgresql://" + rds_secret['username'] + ':' + \
     rds_secret['password'] + '@' + rds_secret['host'] + ':' + \
@@ -71,7 +71,7 @@ def get_user_profile(id=None, db_name=None):
   
   except psycopg2.Error as e:
     connection.rollback()
-    raise psycopg2.Error
+    raise e
 
   # Return user profile record as a dict
   return profile
