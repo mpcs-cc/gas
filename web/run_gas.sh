@@ -2,7 +2,7 @@
 
 # run_gas.sh
 #
-# Copyright (C) 2011-2020 Vas Vasiliadis
+# Copyright (C) 2011-2022 Vas Vasiliadis
 # University of Chicago
 #
 # Runs the GAS app using a production-grade WSGI server (uwsgi)
@@ -39,7 +39,7 @@ if [ "$1" = "console" ]; then
     --log-master \
     --chdir $GAS_WEB_APP_HOME \
     --socket /tmp/gas.sock \
-    --mount /gas=gas:app \
+    --mount /gas=app:app \
     --https $GAS_SOURCE_HOST:$GAS_HOST_PORT,$SSL_CERT_PATH,$SSL_KEY_PATH
 else
   /home/ubuntu/.virtualenvs/mpcs/bin/uwsgi \
@@ -50,7 +50,7 @@ else
     --log-master \
     --chdir $GAS_WEB_APP_HOME \
     --socket /tmp/gas.sock \
-    --mount /gas=gas:app \
+    --mount /gas=app:app \
     --https $GAS_SOURCE_HOST:$GAS_HOST_PORT,$SSL_CERT_PATH,$SSL_KEY_PATH \
     --logger file:logfile=$LOG_TARGET,maxsize=500000
 fi

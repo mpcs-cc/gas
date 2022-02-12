@@ -1,6 +1,6 @@
 # models.py
 #
-# Copyright (C) 2011-2020 Vas Vasiliadis
+# Copyright (C) 2011-2022 Vas Vasiliadis
 # University of Chicago
 #
 # Database models
@@ -8,7 +8,7 @@
 ##
 __author__ = 'Vas Vasiliadis <vas@uchicago.edu>'
 
-from gas import db
+from app import db
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
 

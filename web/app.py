@@ -1,6 +1,6 @@
 # gas.py
 #
-# Copyright (C) 2011-2020 Vas Vasiliadis
+# Copyright (C) 2011-2022 Vas Vasiliadis
 # University of Chicago
 #
 # Configure GAS runtime environment
@@ -19,6 +19,7 @@ import os
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 environment = os.environ['GAS_CONFIG'] \
@@ -71,6 +72,7 @@ app.logger.setLevel(logger.level)
 
 # Add database handle to the Flask app
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 import views
 import auth

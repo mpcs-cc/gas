@@ -1,6 +1,6 @@
 # views.py
 #
-# Copyright (C) 2011-2020 Vas Vasiliadis
+# Copyright (C) 2011-2022 Vas Vasiliadis
 # University of Chicago
 #
 # Application logic for the GAS
@@ -21,7 +21,7 @@ from botocore.exceptions import ClientError
 from flask import (abort, flash, redirect, render_template, 
   request, session, url_for)
 
-from gas import app, db
+from app import app, db
 from decorators import authenticated, is_premium
 
 """Start annotation request
@@ -100,6 +100,7 @@ def create_annotation_job_request():
   s3_key = request.args.get('key')
 
   # Extract the job ID from the S3 key
+  # Move your code here
 
   # Persist job to database
   # Move your code here...

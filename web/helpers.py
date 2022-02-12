@@ -1,6 +1,6 @@
 # helpers.py
 #
-# Copyright (C) 2011-2020 Vas Vasiliadis
+# Copyright (C) 2011-2022 Vas Vasiliadis
 # University of Chicago
 #
 # Miscellaneous helper functions
@@ -21,7 +21,7 @@ try:
 except:
   from urlparse import urlparse, urljoin
 
-from gas import app, db
+from app import app, db
 
 """Create an AuthClient for the GAS app
 """

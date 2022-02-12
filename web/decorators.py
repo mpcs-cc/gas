@@ -1,6 +1,6 @@
 # decorators.py
 #
-# Copyright (C) 2011-2020 Vas Vasiliadis
+# Copyright (C) 2011-2022 Vas Vasiliadis
 # University of Chicago
 #
 # Decorators for the GAS
@@ -11,7 +11,7 @@ __author__ = 'Vas Vasiliadis <vas@uchicago.edu>'
 from flask import redirect, request, session, url_for
 from functools import wraps
 
-from gas import db
+from app import db
 from models import Profile
 
 """Mark a route as requiring authentication
