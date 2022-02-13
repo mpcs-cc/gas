@@ -1,6 +1,6 @@
 # auth.py
 #
-# Copyright (C) 2011-2020 Vas Vasiliadis
+# Copyright (C) 2011-2022 Vas Vasiliadis
 # University of Chicago
 #
 # Manage GAS user profiles and Globus Auth integration
@@ -17,12 +17,11 @@ import uuid
 from flask import (flash, redirect, render_template, url_for,
   request, session, abort)
 
-from globus_sdk import RefreshTokenAuthorizer, ConfidentialAppAuthClient
+from globus_sdk import ConfidentialAppAuthClient
 
-from gas import app, db
+from app import app, db
 from decorators import authenticated
-from helpers import (load_portal_client, get_portal_tokens,
-  get_safe_redirect)
+from helpers import load_portal_client, get_safe_redirect
 
 from models import Profile
 
@@ -83,8 +82,7 @@ def logout():
       for ty in ('access_token', 'refresh_token')
         # only where the relevant token is actually present
         if token_info[ty] is not None):
-          client.oauth2_revoke_token(
-            token, additional_params={'token_type_hint': token_type})
+          client.oauth2_revoke_token(token)
 
   # Destroy the session state
   app.logger.info(f"{session['name']} \
@@ -170,12 +168,7 @@ def authcallback():
   # If there's no "code" query string parameter, we're in this route
   # starting a Globus Auth login flow
   if 'code' not in request.args:
-    additional_authorize_params = (
-      {'signup': 1} if request.args.get('signup') else {})
-
-    auth_uri = client.oauth2_get_authorize_url(
-      additional_params=additional_authorize_params)
-
+    auth_uri = client.oauth2_get_authorize_url()
     return redirect(auth_uri)
       
   else:
@@ -184,7 +177,7 @@ def authcallback():
     code = request.args.get('code')
     tokens = client.oauth2_exchange_code_for_tokens(code)
 
-    id_token = tokens.decode_id_token(client)
+    id_token = tokens.decode_id_token()
     session.update(
       tokens=tokens.by_resource_server,
       is_authenticated=True,
