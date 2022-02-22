@@ -84,12 +84,13 @@ $(document).ready( function(){
 
 </script>
 
-<!-- ADD STRIPE JS CODE BELOW -->
+<!-- STRIPE JS CODE BELOW -->
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
 <script type="text/javascript">
 // This identifies our web app in the createToken call below
 Stripe.setPublishableKey('<STRIPE_PUBLIC_API_KEY>');
+
 // This function adds the Stripe token to the form as a hidden field so we
 // can access it in our server code. If there's an error in the payment
 // details it displays the errors in the "payment-errors" class
@@ -109,6 +110,7 @@ var stripeResponseHandler = function(status, response) {
     $form.get(0).submit();
   }
 };
+
 // This function intercepts the form submission, calls Stripe to get a
 // token and then calls the stripeResponseHandler() function to complete
 // the submission.
