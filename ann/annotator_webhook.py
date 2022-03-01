@@ -13,7 +13,7 @@ import requests
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
-environment = 'config.Config'
+environment = 'ann_onfig.Config'
 app.config.from_object(environment)
 
 # Connect to SQS and get the message queue

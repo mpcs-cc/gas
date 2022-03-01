@@ -12,6 +12,6 @@
 cd /home/ubuntu/gas/ann
 source /usr/local/bin/virtualenvwrapper.sh
 source /home/ubuntu/.virtualenvs/mpcs/bin/activate
-python /home/ubuntu/gas/ann/annotator_webook.py
+python /home/ubuntu/gas/ann/annotator_webhook.py
 
 ### EOF
