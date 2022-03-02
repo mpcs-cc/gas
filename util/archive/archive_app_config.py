@@ -1,16 +1,12 @@
-# archive_config.py
+# archive_app_config.py
 #
-# Copyright (C) 2011-2021 Vas Vasiliadis
+# Copyright (C) 2011-2022 Vas Vasiliadis
 # University of Chicago
 #
 # Set app configuration options for archive utility
 #
 ##
 __author__ = 'Vas Vasiliadis <vas@uchicago.edu>'
-
-import os
-
-basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config(object):
 
