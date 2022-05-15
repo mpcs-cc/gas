@@ -27,7 +27,7 @@ def send_email_ses(recipients=None, sender=None, subject=None, body=None):
   try:
     response = ses.send_email(
       Destination = {
-        'ToAddresses': (recipients if type(recipients) == "list" else [recipients])
+        'ToAddresses': (recipients if isinstance(recipients, list) else [recipients])
       },
       Message={
         'Body': {'Text': {'Charset': "UTF-8", 'Data': body}},

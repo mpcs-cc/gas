@@ -37,12 +37,14 @@ def handle_archive_queue(sqs=None):
 
   pass    
 
-if __name__ == '__main__':  
-  
+def main():
   # Get handles to resources; and create resources if they don't exist
 
   # Poll queue for new results and process them
   while True:
     handle_archive_queue(sqs=sqs)
+
+if __name__ == '__main__':  
+  main()
 
 ### EOF
