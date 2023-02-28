@@ -5,7 +5,7 @@
 # Copyright (C) 2015-2023 Vas Vasiliadis
 # University of Chicago
 ##
-__author__ = 'Vas Vasiliadis <vas@uchicago.edu>'
+__author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
 import json
 import os
@@ -13,16 +13,19 @@ import os
 from flask import Flask
 
 app = Flask(__name__)
-environment = 'archive_app_config.Config'
+environment = "archive_app_config.Config"
 app.config.from_object(environment)
 app.url_map.strict_slashes = False
 
-@app.route('/', methods=['GET'])
-def home():
-  return (f"This is the Archive utility: POST requests to /archive.")
 
-@app.route('/archive', methods=['POST'])
+@app.route("/", methods=["GET"])
+def home():
+    return f"This is the Archive utility: POST requests to /archive."
+
+
+@app.route("/archive", methods=["POST"])
 def archive_free_user_data():
-  pass
+    pass
+
 
 ### EOF
