@@ -6,19 +6,21 @@
 # Set app configuration options for thaw utility
 #
 ##
-__author__ = 'Vas Vasiliadis <vas@uchicago.edu>'
+__author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+
 class Config(object):
 
-  CSRF_ENABLED = True
+    CSRF_ENABLED = True
 
-  AWS_REGION_NAME = "us-east-1"
+    AWS_REGION_NAME = "us-east-1"
 
-  # AWS DynamoDB table
-  AWS_DYNAMODB_ANNOTATIONS_TABLE = "<CNetID>_annotations"
+    # AWS DynamoDB table
+    AWS_DYNAMODB_ANNOTATIONS_TABLE = "<CNetID>_annotations"
+
 
 ### EOF
