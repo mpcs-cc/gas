@@ -1,6 +1,6 @@
 # thaw_app.py
 #
-# Thaws upgraded (premium) user data
+# Thaws upgraded (Premium) user data
 #
 # Copyright (C) 2015-2023 Vas Vasiliadis
 # University of Chicago
@@ -24,7 +24,5 @@ def home():
 @app.route('/thaw', methods=['POST'])
 def thaw_premium_user_data():
   pass
-
-app.run('0.0.0.0', debug=True)
 
 ### EOF

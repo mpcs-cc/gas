@@ -1,6 +1,6 @@
 # thaw_app_config.py
 #
-# Copyright (C) 2011-2021 Vas Vasiliadis
+# Copyright (C) 2015-2023 Vas Vasiliadis
 # University of Chicago
 #
 # Set app configuration options for thaw utility
