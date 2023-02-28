@@ -38,7 +38,7 @@ def main():
 
   # Poll queue for new results and process them
   while True:
-    handle_thaw_queue(sqs=sqs)
+    handle_thaw_queue(sqs=None)
 
 if __name__ == '__main__':
   main()
