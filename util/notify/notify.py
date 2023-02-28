@@ -2,10 +2,10 @@
 #
 # Notify users of job completion
 #
-# Copyright (C) 2011-2021 Vas Vasiliadis
+# Copyright (C) 2015-2023 Vas Vasiliadis
 # University of Chicago
 ##
-__author__ = 'Vas Vasiliadis <vas@uchicago.edu>'
+__author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
 import boto3
 import time
@@ -21,28 +21,36 @@ import helpers
 
 # Get configuration
 from configparser import ConfigParser
-config = ConfigParser(os.environ)
-config.read('notify_config.ini')
 
-'''Capstone - Exercise 3(d)
+config = ConfigParser(os.environ)
+config.read("notify_config.ini")
+
+"""A12
 Reads result messages from SQS and sends notification emails.
-'''
+"""
+
+
 def handle_results_queue(sqs=None):
 
-  # Read a message from the queue
+    # Read messages from the queue
 
-  # Process message
+    # Process messages
 
-  # Delete message
+    # Delete messages
 
-  pass
+    pass
 
-if __name__ == '__main__':
-  
-  # Get handles to resources; and create resources if they don't exist
 
-  # Poll queue for new results and process them
-  while True:
-    handle_results_queue(sqs=sqs)
+def main():
+
+    # Get handles to resources
+
+    # Poll queue for new results and process them
+    while True:
+        handle_results_queue(sqs=None)
+
+
+if __name__ == "__main__":
+    main()
 
 ### EOF
