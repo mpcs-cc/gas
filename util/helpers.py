@@ -1,6 +1,6 @@
 # helpers.py
 #
-# Copyright (C) 2011-2019 Vas Vasiliadis
+# Copyright (C) 2015-2023 Vas Vasiliadis
 # University of Chicago
 #
 # Miscellaneous helper functions
@@ -74,6 +74,7 @@ def get_user_profile(id=None, db_name=None):
     raise e
 
   # Return user profile record as a dict
+  connection.close()
   return profile
 
 ### EOF

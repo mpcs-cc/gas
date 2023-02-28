@@ -2,7 +2,7 @@
 #
 # Thaws upgraded (premium) user data
 #
-# Copyright (C) 2011-2021 Vas Vasiliadis
+# Copyright (C) 2015-2023 Vas Vasiliadis
 # University of Chicago
 ##
 __author__ = 'Vas Vasiliadis <vas@uchicago.edu>'
@@ -24,5 +24,7 @@ def home():
 @app.route('/thaw', methods=['POST'])
 def thaw_premium_user_data():
   pass
+
+app.run('0.0.0.0', debug=True)
 
 ### EOF

@@ -4,7 +4,7 @@
 # Original copyright (c) 2011, The Mount Sinai School of Medicine
 # Available under BSD licence
 #
-# Modified code copyright (C) 2011-2019 Vas Vasiliadis
+# Modified code copyright (C) 2015-2019 Vas Vasiliadis
 # University of Chicago
 #
 ##

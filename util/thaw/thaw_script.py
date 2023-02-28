@@ -2,7 +2,7 @@
 #
 # Thaws upgraded (premium) user data
 #
-# Copyright (C) 2011-2021 Vas Vasiliadis
+# Copyright (C) 2015-2023 Vas Vasiliadis
 # University of Chicago
 ##
 __author__ = 'Vas Vasiliadis <vas@uchicago.edu>'
@@ -19,25 +19,28 @@ from configparser import ConfigParser
 config = ConfigParser(os.environ)
 config.read('thaw_script_config.ini')
 
-'''Capstone - Exercise 9
+'''A16
 Initiate thawing of archived objects from Glacier
 '''
 def handle_thaw_queue(sqs=None):
   
-  # Read a message from the queue
+  # Read messages from the queue
 
-  # Process message
+  # Process messages
 
-  # Delete message
+  # Delete messages
 
   pass
 
-if __name__ == '__main__':  
+def main():
 
-  # Get handles to resources; and create resources if they don't exist
+  # Get handles to resources
 
   # Poll queue for new results and process them
   while True:
     handle_thaw_queue(sqs=sqs)
+
+if __name__ == '__main__':
+  main()
 
 ### EOF
