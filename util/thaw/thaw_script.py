@@ -14,9 +14,12 @@ import sys
 import json
 from botocore.exceptions import ClientError
 
+# Import utility helpers
+sys.path.insert(1, os.path.realpath(os.path.pardir))
+import helpers
+
 # Get configuration
 from configparser import ConfigParser
-
 config = ConfigParser(os.environ)
 config.read("thaw_script_config.ini")
 

@@ -2,7 +2,7 @@
 #
 # Archive free user data
 #
-# Copyright (C) 2011-2021 Vas Vasiliadis
+# Copyright (C) 2015-2023 Vas Vasiliadis
 # University of Chicago
 ##
 __author__ = 'Vas Vasiliadis <vas@uchicago.edu>'
@@ -12,7 +12,6 @@ import time
 import os
 import sys
 import json
-import psycopg2
 from botocore.exceptions import ClientError
 
 # Import utility helpers
@@ -24,25 +23,25 @@ from configparser import ConfigParser
 config = ConfigParser(os.environ)
 config.read('archive_script_config.ini')
 
-'''Capstone - Exercise 7
+'''A14
 Archive free user results files
 '''
 def handle_archive_queue(sqs=None):
  
-  # Read a message from the queue
+  # Read messages from the queue
 
-  # Process message
+  # Process messages
 
-  # Delete message  
+  # Delete messages
 
   pass    
 
 def main():
-  # Get handles to resources; and create resources if they don't exist
+  # Get handles to resources
 
   # Poll queue for new results and process them
   while True:
-    handle_archive_queue(sqs=sqs)
+    handle_archive_queue(sqs=None)
 
 if __name__ == '__main__':  
   main()
