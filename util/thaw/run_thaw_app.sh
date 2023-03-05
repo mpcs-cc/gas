@@ -16,13 +16,13 @@ export HOST_PORT=5001
 cd $THAW_APP_HOME
 
 /home/ubuntu/.virtualenvs/mpcs/bin/uwsgi \
-  --manage-script-name \
-  --enable-threads \
-  --vacuum \
-  --log-master \
-  --chdir $THAW_APP_HOME \
-  --socket /tmp/thaw_app.sock \
-  --mount /thaw_app=thaw_app:app \
-  --http $SOURCE_HOST:$HOST_PORT
+    --chdir $THAW_APP_HOME \
+    --enable-threads \
+    --http $SOURCE_HOST:$HOST_PORT \
+    --log-master \
+    --manage-script-name \
+    --mount /thaw_app=thaw_app:app \
+    --socket /tmp/thaw_app.sock \
+    --vacuum
 
 ### EOF

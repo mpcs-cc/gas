@@ -16,13 +16,13 @@ export HOST_PORT=5000
 cd $ARCHIVE_APP_HOME
 
 /home/ubuntu/.virtualenvs/mpcs/bin/uwsgi \
-  --manage-script-name \
-  --enable-threads \
-  --vacuum \
-  --log-master \
-  --chdir $ARCHIVE_APP_HOME \
-  --socket /tmp/archive_app.sock \
-  --mount /archive_app=archive_app:app \
-  --http $SOURCE_HOST:$HOST_PORT
+    --chdir $ARCHIVE_APP_HOME \
+    --enable-threads \
+    --http $SOURCE_HOST:$HOST_PORT \
+    --log-master \
+    --manage-script-name \
+    --mount /archive_app=archive_app:app \
+    --socket /tmp/archive_app.sock \
+    --vacuum
 
 ### EOF

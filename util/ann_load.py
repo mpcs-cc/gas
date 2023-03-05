@@ -1,12 +1,12 @@
 # ann_load.py
 #
-# Copyright (C) 2011-2021 Vas Vasiliadis
+# Copyright (C) 2015-2023 Vas Vasiliadis
 # University of Chicago
 #
 # Exercises the annotator's auto scaling
 #
 ##
-__author__ = 'Vas Vasiliadis <vas@uchicago.edu>'
+__author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
 import uuid
 import time
@@ -21,21 +21,28 @@ EMAIL = "<CNetID>@uchicago.edu"
 
 """Fires off annotation jobs with hardcoded data for testing
 """
+
+
 def load_requests_queue():
 
-  # Define and persist job data
+    # Define and persist job data
 
-  # Send message to request queue
+    # Send message to request queue
 
-  pass
+    pass
 
-if __name__ == '__main__':
-  while True:
-    try:
-      load_requests_queue()
-      time.sleep(3)
-    except ClientError as e:
-      print("Irrecoverable error. Exiting.")
-      sys.exit()
+
+def main():
+    while True:
+        try:
+            load_requests_queue()
+            time.sleep(3)
+        except ClientError as e:
+            print("Irrecoverable error. Exiting.")
+            sys.exit()
+
+
+if __name__ == "__main__":
+    main()
 
 ### EOF

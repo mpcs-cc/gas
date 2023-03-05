@@ -12,7 +12,6 @@ import time
 import os
 import sys
 import json
-import psycopg2
 from botocore.exceptions import ClientError
 
 # Import utility helpers
@@ -20,9 +19,10 @@ sys.path.insert(1, os.path.realpath(os.path.pardir))
 import helpers
 
 # Get configuration
-from configparser import ConfigParser
+from configparser import ConfigParser, ExtendedInterpolation
 
-config = ConfigParser(os.environ)
+config = ConfigParser(os.environ, interpolation=ExtendedInterpolation())
+config.read("../util_config.ini")
 config.read("notify_config.ini")
 
 """A12
@@ -34,7 +34,7 @@ def handle_results_queue(sqs=None):
 
     # Read messages from the queue
 
-    # Process messages
+    # Process messages --> send email to user
 
     # Delete messages
 

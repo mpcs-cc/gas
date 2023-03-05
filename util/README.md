@@ -2,6 +2,7 @@
 This directory contains the following utility-related files:
 * `helpers.py` - Miscellaneous helper functions
 * `util_config.py` - Common configuration options for all utilities
+* `ann_load.py` - Annotator load testing script (if you completed A20)
 
 Each utility must be in its own sub-directory, along with its respective configuration file and run script, as follows:
 
@@ -29,6 +30,3 @@ Each utility must be in its own sub-directory, along with its respective configu
 * `thaw_app.py` - Thaws an archived Glacier object using a Flask app
 * `thaw_app_config.py` - Configuration options for thaw utility Flask app
 * `run_thaw_app.sh` - Runs the thaw Flask app
-
-If you completed A20, include your annotator load testing script here
-* `ann_load.py` - Annotator load testing script

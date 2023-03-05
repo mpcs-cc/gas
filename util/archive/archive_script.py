@@ -19,9 +19,10 @@ sys.path.insert(1, os.path.realpath(os.path.pardir))
 import helpers
 
 # Get configuration
-from configparser import ConfigParser
+from configparser import ConfigParser, ExtendedInterpolation
 
-config = ConfigParser(os.environ)
+config = ConfigParser(os.environ, interpolation=ExtendedInterpolation())
+config.read("../util_config.ini")
 config.read("archive_script_config.ini")
 
 """A14
@@ -33,7 +34,7 @@ def handle_archive_queue(sqs=None):
 
     # Read messages from the queue
 
-    # Process messages
+    # Process messages --> archive results file
 
     # Delete messages
 
@@ -41,6 +42,7 @@ def handle_archive_queue(sqs=None):
 
 
 def main():
+
     # Get handles to resources
 
     # Poll queue for new results and process them

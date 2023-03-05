@@ -1,8 +1,8 @@
-# thaw_script.py
+# annotator.py
 #
-# Thaws upgraded (premium) user data
+# NOTE: This file lives on the AnnTools instance
 #
-# Copyright (C) 2015-2023 Vas Vasiliadis
+# Copyright (C) 2013-2023 Vas Vasiliadis
 # University of Chicago
 ##
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
@@ -12,29 +12,27 @@ import time
 import os
 import sys
 import json
+from subprocess import Popen, PIPE
 from botocore.exceptions import ClientError
-
-# Import utility helpers
-sys.path.insert(1, os.path.realpath(os.path.pardir))
-import helpers
 
 # Get configuration
 from configparser import ConfigParser, ExtendedInterpolation
 
 config = ConfigParser(os.environ, interpolation=ExtendedInterpolation())
-config.read("../util_config.ini")
-config.read("thaw_script_config.ini")
+config.read("annotator_config.ini")
 
-"""A16
-Initiate thawing of archived objects from Glacier
+
+"""Reads request messages from SQS and runs AnnTools as a subprocess.
+
+Move existing annotator code here
 """
 
 
-def handle_thaw_queue(sqs=None):
+def handle_requests_queue(sqs=None):
 
     # Read messages from the queue
 
-    # Process messages --> initiate restore from Glacier
+    # Process messages
 
     # Delete messages
 
@@ -47,7 +45,7 @@ def main():
 
     # Poll queue for new results and process them
     while True:
-        handle_thaw_queue(sqs=None)
+        handle_archive_queue(sqs=None)
 
 
 if __name__ == "__main__":
