@@ -1,6 +1,6 @@
 <!--
 annotate.html - Direct upload to Amazon S3 using signed POST request
-Copyright (C) 2011-2018 Vas Vasiliadis <vas@uchicago.edu>
+Copyright (C) 2015-2023 Vas Vasiliadis <vas@uchicago.edu>
 University of Chicago
 -->
 
@@ -10,38 +10,40 @@ University of Chicago
 
 {% block body %}
 
-  {% include "header.html" %}
+    {% include "header.html" %}
 
-  <div class="container">
+    <div class="container">
     
-    <div class="page-header">
-      <h1>Annotate VCF File</h1>
-    </div>
-
-  	<div class="form-wrapper">
-      <form role="form" action="{{ s3_post.url }}" method="post" enctype="multipart/form-data">
-        {% for key, value in s3_post.fields.items() %}
-        <input type="hidden" name="{{ key }}" value="{{ value }}" />
-        {% endfor %}
-
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label for="upload">Select VCF Input File</label>
-            <div class="input-group col-md-12">
-              <span class="input-group-btn">
-                <span class="btn btn-default btn-file btn-lg">Browse&hellip; <input type="file" name="file" id="upload-file" /></span>
-              </span>
-              <input type="text" class="form-control col-md-6 input-lg" readonly />
-            </div>
-          </div>
+        <div class="page-header">
+            <h1>Annotate VCF File</h1>
         </div>
 
-        <br />
-  			<div class="form-actions">
-  				<input class="btn btn-lg btn-primary" type="submit" value="Annotate" id="annotateButton" />
-  			</div>
-      </form>
-    </div>
+        <div class="form-wrapper">
+            <form role="form" action="{{ s3_post.url }}" method="post" enctype="multipart/form-data">
+                {% for key, value in s3_post.fields.items() %}
+                <input type="hidden" name="{{ key }}" value="{{ value }}" />
+                {% endfor %}
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="upload">Select VCF Input File</label>
+                        <div class="input-group col-md-12">
+                            <span class="input-group-btn">
+                                <span class="btn btn-default btn-file btn-lg">Browse&hellip; <input type="file" name="file" id="upload-file" /></span>
+                            </span>
+                            <input type="text" class="form-control col-md-6 input-lg" readonly />
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="form-actions">
+                    <input class="btn btn-lg btn-primary" type="submit" value="Annotate" id="annotateButton" />
+                </div>
+            </form>
+        </div>
     
-  </div>
+    </div> <!-- container -->
+
 {% endblock %}
