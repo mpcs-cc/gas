@@ -15,6 +15,8 @@ import json
 from subprocess import Popen, PIPE
 from botocore.exceptions import ClientError
 
+base_dir = os.path.abspath(os.path.dirname(__file__))
+
 # Get configuration
 from configparser import ConfigParser, ExtendedInterpolation
 

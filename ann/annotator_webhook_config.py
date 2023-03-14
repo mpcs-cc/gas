@@ -10,15 +10,15 @@ __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
 import os
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+base_dir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config(object):
 
     CSRF_ENABLED = True
 
-    ANNOTATOR_BASE_DIR = "/home/ubuntu/gas/ann/"
-    ANNOTATOR_JOBS_DIR = "/home/ubuntu/gas/ann/jobs"
+    ANNOTATOR_BASE_DIR = f"{base_dir}"
+    ANNOTATOR_JOBS_DIR = f"{base_dir}/jobs"
 
     AWS_REGION_NAME = "us-east-1"
 

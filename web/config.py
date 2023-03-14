@@ -5,6 +5,11 @@
 #
 # Set GAS web app configuration options based on environment
 #
+# ************************************************************************
+#
+# >>>>> MAKE CHANGES TO THIS FILE ONLY BELOW LINE 133 <<<<<<<
+#
+# ************************************************************************
 ##
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
@@ -14,7 +19,7 @@ import boto3
 import base64
 from botocore.exceptions import ClientError
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+base_dir = os.path.abspath(os.path.dirname(__file__))
 
 # Get the IAM username that was stashed at launch time
 try:
@@ -33,7 +38,7 @@ class Config(object):
     GAS_LOG_LEVEL = (
         os.environ["GAS_LOG_LEVEL"] if ("GAS_LOG_LEVEL" in os.environ) else "INFO"
     )
-    GAS_LOG_FILE_PATH = basedir + (
+    GAS_LOG_FILE_PATH = base_dir + (
         os.environ["GAS_LOG_FILE_PATH"]
         if ("GAS_LOG_FILE_PATH" in os.environ)
         else "/log"

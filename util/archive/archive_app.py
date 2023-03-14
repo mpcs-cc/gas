@@ -13,9 +13,11 @@ import os
 from flask import Flask
 
 app = Flask(__name__)
+app.url_map.strict_slashes = False
+
+# Get configuration and add to Flask app object
 environment = "archive_app_config.Config"
 app.config.from_object(environment)
-app.url_map.strict_slashes = False
 
 
 @app.route("/", methods=["GET"])

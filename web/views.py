@@ -223,7 +223,7 @@ def unsubscribe():
 
 @app.route("/", methods=["GET"])
 def home():
-    return render_template("home.html")
+    return render_template("home.html"), 200
 
 
 """Login page; send user to Globus Auth

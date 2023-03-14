@@ -14,8 +14,10 @@ from botocore.exceptions import ClientError
 # Define constants here; no config file is used for Lambdas
 DYNAMODB_TABLE = "<CNetID>_annotations"
 
+
 def lambda_handler(event, context):
-    #print("Received event: " + json.dumps(event, indent=2))
+    # print("Received event: " + json.dumps(event, indent=2))
     pass
+
 
 ### EOF

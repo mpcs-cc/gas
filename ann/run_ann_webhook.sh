@@ -9,7 +9,7 @@
 #
 ##
 
-export ANNOTATOR_WEBHOOK_HOME=/home/ubuntu/gas/util/archive
+export ANNOTATOR_WEBHOOK_HOME=/home/ubuntu/gas/ann
 export SOURCE_HOST=0.0.0.0
 export HOST_PORT=4433
 

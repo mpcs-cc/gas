@@ -21,13 +21,15 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 app = Flask(__name__)
+app.url_map.strict_slashes = False
+
+# Add configuration to app object
 environment = (
     os.environ["GAS_CONFIG"]
     if ("GAS_CONFIG" in os.environ)
     else "config.ProductionConfig"
 )
 app.config.from_object(environment)
-app.url_map.strict_slashes = False
 
 # Configure logging
 import logging

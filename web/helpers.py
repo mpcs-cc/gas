@@ -5,6 +5,11 @@
 #
 # Miscellaneous helper functions
 #
+# ************************************************************************
+#
+# DO NOT MODIFY THIS FILE IN ANY WAY.
+#
+# ************************************************************************
 ##
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 

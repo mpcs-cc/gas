@@ -10,7 +10,7 @@ __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
 import os
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+base_dir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config(object):
