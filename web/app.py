@@ -31,6 +31,17 @@ environment = (
 )
 app.config.from_object(environment)
 
+# Turn auto escaping on in Jinja templates
+jinja_options = ImmutableDict(
+    extensions=['jinja2.ext.autoescape', 'jinja2.ext.with_'
+])
+app.jinja_env.autoescape = True
+
+# Add CSRF protection
+from flask_wtf.csrf import CSRFProtect
+csrf = CSRFProtect(app)
+
+
 # Configure logging
 import logging
 from logging.handlers import RotatingFileHandler
