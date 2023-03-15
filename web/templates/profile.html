@@ -18,6 +18,7 @@ University of Chicago
         </div>
 
         <form role="form" action="{{ url_for('profile') }}" method="POST">
+            {{ form.csrf_token }}
             <div class="row">
                 <div class="form-group col-md-5">
                     <label for="primary_identity">Globus Identity ID</label>
