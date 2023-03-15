@@ -31,6 +31,13 @@ environment = (
 )
 app.config.from_object(environment)
 
+# Protect cookies
+app.config.update(
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+)
+
 # Turn auto escaping on in Jinja templates
 from werkzeug.datastructures import ImmutableDict
 jinja_options = ImmutableDict(
