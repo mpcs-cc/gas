@@ -41,6 +41,7 @@ app.jinja_env.autoescape = True
 # Add CSRF protection
 from flask_wtf.csrf import CSRFProtect
 csrf = CSRFProtect(app)
+csrf.init_app(app)
 
 # Configure logging
 import logging
