@@ -20,6 +20,7 @@ University of Chicago
 
         <div class="form-wrapper">
             <form role="form" action="{{ s3_post.url }}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                 {% for key, value in s3_post.fields.items() %}
                 <input type="hidden" name="{{ key }}" value="{{ value }}" />
                 {% endfor %}
