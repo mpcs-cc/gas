@@ -312,4 +312,22 @@ def internal_error(error):
     )
 
 
+"""CSRF error handler
+"""
+
+
+from flask_wtf.csrf import CSRFError
+
+@app.errorhandler(CSRFError)
+def csrf_error(error):
+    return (
+        render_template(
+            "error.html",
+            title="CSRF error",
+            alert_level="danger",
+            message=f"Cross-Site Request Forgery error detected: {error.description}",
+        ),
+        400,
+    )
+
 ### EOF
