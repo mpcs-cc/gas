@@ -52,8 +52,8 @@ def annotate():
         # Process job request
 
         return (
-            jsonify({"code": 200, "message": "Annotation job request processed."}),
-            200,
+            jsonify({"code": 201, "message": "Annotation job request processed."}),
+            201,
         )
 
 ### EOF
