@@ -35,18 +35,18 @@ app.config.from_object(environment)
 app.config.update(
     SESSION_COOKIE_SECURE=True,
     SESSION_COOKIE_HTTPONLY=True,
-    SESSION_COOKIE_SAMESITE='Lax',
+    SESSION_COOKIE_SAMESITE="Lax",
 )
 
 # Turn auto escaping on in Jinja templates
 from werkzeug.datastructures import ImmutableDict
-jinja_options = ImmutableDict(
-    extensions=['jinja2.ext.autoescape', 'jinja2.ext.with_'
-])
+
+jinja_options = ImmutableDict(extensions=["jinja2.ext.autoescape", "jinja2.ext.with_"])
 app.jinja_env.autoescape = True
 
 # Add CSRF protection
 from flask_wtf.csrf import CSRFProtect
+
 csrf = CSRFProtect(app)
 csrf.init_app(app)
 

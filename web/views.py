@@ -318,6 +318,7 @@ def internal_error(error):
 
 from flask_wtf.csrf import CSRFError
 
+
 @app.errorhandler(CSRFError)
 def csrf_error(error):
     return (
@@ -329,5 +330,6 @@ def csrf_error(error):
         ),
         400,
     )
+
 
 ### EOF
