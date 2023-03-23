@@ -57,6 +57,7 @@ from logging.handlers import RotatingFileHandler
 # Create a rotating log file handler
 if not os.path.exists(app.config["GAS_LOG_FILE_PATH"]):
     os.makedirs(app.config["GAS_LOG_FILE_PATH"])
+
 log_file = app.config["GAS_LOG_FILE_PATH"] + "/" + app.config["GAS_LOG_FILE_NAME"]
 log_file_handler = RotatingFileHandler(log_file, maxBytes=500000, backupCount=9)
 
