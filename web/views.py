@@ -64,11 +64,13 @@ def annotate():
         "success_action_redirect": redirect_url,
         "x-amz-server-side-encryption": encryption,
         "acl": acl,
+        "csrf_token": app.config["SECRET_KEY"],
     }
     conditions = [
         ["starts-with", "$success_action_redirect", redirect_url],
         {"x-amz-server-side-encryption": encryption},
         {"acl": acl},
+        ["starts-with", "$csrf_token", ""],
     ]
 
     # Generate the presigned POST call
