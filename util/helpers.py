@@ -19,9 +19,9 @@ import boto3
 from botocore.exceptions import ClientError
 
 # Get util configuration
-from configparser import ConfigParser
+from configparser import ConfigParser, ExtendedInterpolation
 
-config = ConfigParser(os.environ)
+config = ConfigParser(os.environ, interpolation=ExtendedInterpolation())
 config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), "util_config.ini"))
 
 """Send email via Amazon SES
