@@ -79,6 +79,7 @@ def get_user_profile(id=None, db_name=None):
         + "/"
         + (db_name or config["gas"]["AccountsDatabase"])
     )
+    profile = None
 
     try:
         # Connect to accounts database and get a cursor
@@ -90,7 +91,7 @@ def get_user_profile(id=None, db_name=None):
         cursor.execute(query_string)
         profile = cursor.fetchall()[0]
 
-    except psycopg2.Error as e:
+    except Exception as e:
         connection.rollback()
 
     finally:
