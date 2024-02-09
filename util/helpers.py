@@ -1,6 +1,6 @@
 # helpers.py
 #
-# Copyright (C) 2015-2023 Vas Vasiliadis
+# Copyright (C) 2015-2024 Vas Vasiliadis
 # University of Chicago
 #
 # Miscellaneous helper functions
@@ -13,9 +13,10 @@
 ##
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
-import os
-import json
 import boto3
+import json
+import os
+
 from botocore.exceptions import ClientError
 
 # Get util configuration
@@ -43,7 +44,7 @@ def send_email_ses(recipients=None, sender=None, subject=None, body=None):
                 "Body": {"Text": {"Charset": "UTF-8", "Data": body}},
                 "Subject": {"Charset": "UTF-8", "Data": subject},
             },
-            Source=(sender or config["gas"]["MailDefaultSender"]),
+            Source=(sender if sender else config["gas"]["MailDefaultSender"]),
         )
     except ClientError as e:
         raise e
@@ -77,9 +78,8 @@ def get_user_profile(id=None, db_name=None):
         + ":"
         + str(rds_secret["port"])
         + "/"
-        + (db_name or config["gas"]["AccountsDatabase"])
+        + (db_name if db_name else config["gas"]["AccountsDatabase"])
     )
-    profile = None
 
     try:
         # Connect to accounts database and get a cursor
@@ -91,7 +91,7 @@ def get_user_profile(id=None, db_name=None):
         cursor.execute(query_string)
         profile = cursor.fetchall()[0]
 
-    except Exception as e:
+    except psycopg2.Error as e:
         connection.rollback()
 
     finally:

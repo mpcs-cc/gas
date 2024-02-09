@@ -2,7 +2,7 @@
 
 # run_ann.sh
 #
-# Copyright (C) 2015-2023 Vas Vasiliadis
+# Copyright (C) 2011-2019 Vas Vasiliadis
 # University of Chicago
 #
 # Runs the annotator script
@@ -11,6 +11,6 @@
 
 cd /home/ubuntu/gas/ann
 source /home/ubuntu/.virtualenvs/mpcs/bin/activate
-python /home/ubuntu/gas/ann/annotator.py
+/home/ubuntu/.virtualenvs/mpcs/bin/python /home/ubuntu/gas/ann/annotator.py
 
 ### EOF

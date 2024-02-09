@@ -103,7 +103,6 @@ homework assignments
 
 
 @app.route("/annotate/job", methods=["GET"])
-@authenticated
 def create_annotation_job_request():
 
     region = app.config["AWS_REGION_NAME"]
@@ -129,7 +128,6 @@ def create_annotation_job_request():
 
 
 @app.route("/annotations", methods=["GET"])
-@authenticated
 def annotations_list():
 
     # Get list of annotations to display
@@ -142,7 +140,6 @@ def annotations_list():
 
 
 @app.route("/annotations/<id>", methods=["GET"])
-@authenticated
 def annotation_details(id):
     pass
 
@@ -152,7 +149,6 @@ def annotation_details(id):
 
 
 @app.route("/annotations/<id>/log", methods=["GET"])
-@authenticated
 def annotation_log(id):
     pass
 
@@ -164,7 +160,6 @@ from auth import update_profile
 
 
 @app.route("/subscribe", methods=["GET", "POST"])
-@authenticated
 def subscribe():
     if request.method == "GET":
         # Display form to get subscriber credit card info

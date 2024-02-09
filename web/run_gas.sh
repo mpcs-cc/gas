@@ -25,7 +25,7 @@ else
 fi
 
 # Kill any other process running/listening on our port
-sudo kill -9 `sudo lsof -t -i:$GAS_HOST_PORT`
+#sudo kill -9 `sudo lsof -t -i:$GAS_HOST_PORT`
 
 # Create the log directory and file, if it doesn't exist
 [[ -d $GAS_WEB_APP_HOME/log ]] || mkdir $GAS_WEB_APP_HOME/log

@@ -8,11 +8,12 @@
 ##
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
-import uuid
-import time
-import sys
-import json
 import boto3
+import json
+import sys
+import time
+import uuid
+
 from botocore.exceptions import ClientError
 
 # Define constants here; no config file is used for this scipt
@@ -25,9 +26,11 @@ EMAIL = "<CNetID>@uchicago.edu"
 
 def load_requests_queue():
 
-    # Define and persist job data
+    # Define job data
 
-    # Send message to request queue
+    # Persist job data to database
+
+    # Send message to request topic
 
     pass
 

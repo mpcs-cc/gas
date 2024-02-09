@@ -2,16 +2,17 @@
 #
 # Thaws upgraded (premium) user data
 #
-# Copyright (C) 2015-2023 Vas Vasiliadis
+# Copyright (C) 2015-2024 Vas Vasiliadis
 # University of Chicago
 ##
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
 import boto3
-import time
+import json
 import os
 import sys
-import json
+import time
+
 from botocore.exceptions import ClientError
 
 # Import utility helpers
@@ -47,7 +48,7 @@ def main():
 
     # Poll queue for new results and process them
     while True:
-        handle_thaw_queue(sqs=None)
+        handle_thaw_queue()
 
 
 if __name__ == "__main__":

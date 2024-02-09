@@ -1,6 +1,6 @@
 # config.py
 #
-# Copyright (C) 2015-2023 Vas Vasiliadis
+# Copyright (C) 2015-2024 Vas Vasiliadis
 # University of Chicago
 #
 # Set GAS web app configuration options based on environment
@@ -13,10 +13,10 @@
 ##
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
-import os
-import json
 import boto3
-import base64
+import json
+import os
+
 from botocore.exceptions import ClientError
 
 base_dir = os.path.abspath(os.path.dirname(__file__))

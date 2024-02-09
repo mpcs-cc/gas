@@ -10,7 +10,17 @@ __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
 import os
 
-base_dir = os.path.abspath(os.path.dirname(__file__))
+# Get the IAM username that was stashed at launch time
+try:
+    with open("/home/ubuntu/.launch_user", "r") as file:
+        iam_username = file.read().replace("\n", "")
+except FileNotFoundError as e:
+    if "LAUNCH_USER" in os.environ:
+        iam_username = os.environ["LAUNCH_USER"]
+    else:
+        # Unable to set username, so exit
+        print("Unable to find launch user name in local file or environment!")
+        raise e
 
 
 class Config(object):
@@ -20,7 +30,7 @@ class Config(object):
     AWS_REGION_NAME = "us-east-1"
 
     # AWS DynamoDB table
-    AWS_DYNAMODB_ANNOTATIONS_TABLE = "<CNetID>_annotations"
+    AWS_DYNAMODB_ANNOTATIONS_TABLE = f"{iam_username}_annotations"
 
 
 ### EOF

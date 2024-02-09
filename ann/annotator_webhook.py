@@ -1,10 +1,11 @@
 # annotator_webhook.py
 #
-# NOTE: This file lives on the AnnTools instance
 # Modified to run as a web server that can be called by SNS to process jobs
 # Run using: python annotator_webhook.py
 #
-# Copyright (C) 2015-2023 Vas Vasiliadis
+# NOTE: This file lives on the AnnTools instance
+#
+# Copyright (C) 2015-2024 Vas Vasiliadis
 # University of Chicago
 ##
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
@@ -37,27 +38,24 @@ Updates the annotations database with the status of the request.
 """
 
 
-@app.route("/process-job-request", methods=["GET", "POST"])
+@app.route("/process-job-request", methods=["POST"])
 def annotate():
 
-    print(request)
+    # Check message type
 
-    if request.method == "GET":
+    # Confirm SNS topic subscription
 
-        return jsonify({"code": 405, "error": "Expecting SNS POST request."}), 405
+    # Process job request
 
-    elif request.method == "POST":
-
-        # Check message type
-
-        # Confirm SNS topic subscription
-
-        # Process job request
-
-        return (
-            jsonify({"code": 201, "message": "Annotation job request processed."}),
-            201,
-        )
+    return (
+        jsonify(
+            {
+                "code": 201,
+                "message": "Annotation job request processed."
+            }
+        ),
+        201,
+    )
 
 
 ### EOF

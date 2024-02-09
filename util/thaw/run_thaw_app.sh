@@ -11,7 +11,7 @@
 
 export THAW_APP_HOME=/home/ubuntu/gas/util/thaw
 export SOURCE_HOST=0.0.0.0
-export HOST_PORT=5001
+export HOST_PORT=5002
 
 cd $THAW_APP_HOME
 

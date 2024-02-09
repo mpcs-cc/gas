@@ -2,17 +2,19 @@
 #
 # Thaws upgraded (Premium) user data
 #
-# Copyright (C) 2015-2023 Vas Vasiliadis
+# Copyright (C) 2015-2024 Vas Vasiliadis
 # University of Chicago
 ##
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
+import boto3
 import json
+import requests
 import sys
 import time
-import requests
 
-from flask import Flask
+from botocore.exceptions import ClientError
+from flask import Flask, request
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False

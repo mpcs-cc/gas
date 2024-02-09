@@ -8,14 +8,12 @@
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
 import boto3
-import time
+import json
 import os
 import sys
-import json
+import time
 from subprocess import Popen, PIPE
 from botocore.exceptions import ClientError
-
-base_dir = os.path.abspath(os.path.dirname(__file__))
 
 # Get configuration
 from configparser import ConfigParser, ExtendedInterpolation
@@ -43,11 +41,11 @@ def handle_requests_queue(sqs=None):
 
 def main():
 
-    # Get handles to resources
+    # Get handles to queue
 
     # Poll queue for new results and process them
     while True:
-        handle_archive_queue(sqs=None)
+        handle_requests_queue()
 
 
 if __name__ == "__main__":

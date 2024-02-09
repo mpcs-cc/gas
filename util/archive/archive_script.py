@@ -43,11 +43,11 @@ def handle_archive_queue(sqs=None):
 
 def main():
 
-    # Get handles to resources
+    # Get handles to SQS
 
     # Poll queue for new results and process them
     while True:
-        handle_archive_queue(sqs=None)
+        handle_archive_queue()
 
 
 if __name__ == "__main__":

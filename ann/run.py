@@ -1,16 +1,24 @@
 # run.py
 #
-# Copyright (C) 2011-2019 Vas Vasiliadis
+# Runs the AnnTools pipeline
+#
+# NOTE: This file lives on the AnnTools instance and
+# replaces the default AnnTools run.py
+#
+# Copyright (C) 2015-2024 Vas Vasiliadis
 # University of Chicago
-#
-# Wrapper script for running AnnTools
-#
 ##
 __author__ = "Vas Vasiliadis <vas@uchicago.edu>"
 
 import sys
 import time
 import driver
+
+# Get configuration
+from configparser import ConfigParser, ExtendedInterpolation
+
+config = ConfigParser(os.environ, interpolation=ExtendedInterpolation())
+config.read("annotator_config.ini")
 
 """A rudimentary timer for coarse-grained profiling
 """
@@ -31,12 +39,23 @@ class Timer(object):
             print(f"Approximate runtime: {self.secs:.2f} seconds")
 
 
+def main():
+
+    # Get job parameters
+    input_file_name = sys.argv[1]
+
+    # Run the AnnTools pipeline
+    with Timer():
+        driver.run(input_file_name, "vcf")
+
+    # Upload the result and log files to S3
+
+    # Update annotations database
+
+    # Clean up local job files
+
+
 if __name__ == "__main__":
-    # Call the AnnTools pipeline
-    if len(sys.argv) > 1:
-        with Timer():
-            driver.run(sys.argv[1], "vcf")
-    else:
-        print("A valid .vcf file must be provided as input to this program.")
+    main()
 
 ### EOF

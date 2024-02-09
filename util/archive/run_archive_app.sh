@@ -11,7 +11,7 @@
 
 export ARCHIVE_APP_HOME=/home/ubuntu/gas/util/archive
 export SOURCE_HOST=0.0.0.0
-export HOST_PORT=5000
+export HOST_PORT=5001
 
 cd $ARCHIVE_APP_HOME
 
