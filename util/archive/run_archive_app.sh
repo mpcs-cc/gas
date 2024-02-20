@@ -23,6 +23,7 @@ cd $ARCHIVE_APP_HOME
     --manage-script-name \
     --mount /archive_app=archive_app:app \
     --socket /tmp/archive_app.sock \
+    --processes 1 \
     --vacuum
 
 ### EOF

@@ -23,6 +23,7 @@ cd $THAW_APP_HOME
     --manage-script-name \
     --mount /thaw_app=thaw_app:app \
     --socket /tmp/thaw_app.sock \
+    --processes 1 \
     --vacuum
 
 ### EOF

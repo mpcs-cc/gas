@@ -23,6 +23,7 @@ cd $ANN_APP_HOME
     --manage-script-name \
     --mount /annotator_webhook=annotator_webhook:app \
     --socket /tmp/annotator_webhook.sock \
+    --processes 1 \
     --vacuum
 
 ### EOF
