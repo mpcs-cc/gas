@@ -11,6 +11,6 @@
 
 cd /home/ubuntu/gas/util/thaw
 source /home/ubuntu/.virtualenvs/mpcs/bin/activate
-home/ubuntu/.virtualenvs/mpcs/bin/python /home/ubuntu/gas/util/thaw/thaw_script.py
+/home/ubuntu/.virtualenvs/mpcs/bin/python /home/ubuntu/gas/util/thaw/thaw_script.py
 
 ### EOF
